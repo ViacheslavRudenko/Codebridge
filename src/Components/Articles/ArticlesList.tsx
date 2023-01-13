@@ -5,14 +5,24 @@ import ArticlesItem from "./ArticlesItem";
 
 const ArticlesList = () => {
   const articles = useSelector((state: RootState) => state.Articles.data);
-
   return (
-    <Grid component="ul">
+    <Grid container component="ul" gap={{ xs: 1, sm: 3, md: 6 }} sx={{}}>
       {articles.map((article) => {
         return (
-          <Box component="li" key={article.id}>
+          <Grid
+            item
+            component="li"
+            key={article.id}
+            sx={{
+              width: "400px",
+              border: "1px solid #EAEAEA",
+              boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
+              borderRadius: "5px",
+              listStyle: "none",
+            }}
+          >
             <ArticlesItem article={article} />
-          </Box>
+          </Grid>
         );
       })}
     </Grid>
