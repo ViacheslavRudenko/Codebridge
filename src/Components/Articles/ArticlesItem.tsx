@@ -1,8 +1,9 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { ArticlesItemPropsType } from "../../types/components";
 import { getDate } from "./extra/functions";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import "./index.scss";
+import { Link } from "react-router-dom";
 
 const ArticlesItem = ({ article }: ArticlesItemPropsType) => {
   const ContentBox = () => {
@@ -19,9 +20,9 @@ const ArticlesItem = ({ article }: ArticlesItemPropsType) => {
         </Typography>
         <Typography>{article.summary}</Typography>
         <Box pt={3}>
-          <Button>
+          <Link to={`/articles/${article.id}`}>
             <Typography variant="button">Read more &rarr;</Typography>
-          </Button>
+          </Link>
         </Box>
       </>
     );

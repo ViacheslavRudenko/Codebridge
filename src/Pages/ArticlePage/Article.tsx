@@ -20,7 +20,6 @@ const ArticlesPage = () => {
   const { data, err, loading } = useSelector(
     (state: RootState) => state.Articles
   );
-  data.length && console.log(data);
 
   return (
     <Box>
