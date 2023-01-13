@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import ArticlesItem from "../../Components/ArticlesList/ArticlesItem";
-import ArticlesList from "../../Components/ArticlesList/ArticlesList";
+import ArticlesItem from "../../Components/Articles/ArticlesItem";
+import ArticlesList from "../../Components/Articles/ArticlesList";
 import PageError from "../../Components/PageInfo/PageError";
 import PageLoading from "../../Components/PageInfo/PageLoading";
 import { RootState } from "../../store/root-reducer";
