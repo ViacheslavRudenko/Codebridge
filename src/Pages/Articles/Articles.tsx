@@ -1,6 +1,8 @@
-import { Alert, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import ArticlesItem from "../../Components/ArticlesList/ArticlesItem";
+import ArticlesList from "../../Components/ArticlesList/ArticlesList";
 import PageError from "../../Components/PageInfo/PageError";
 import PageLoading from "../../Components/PageInfo/PageLoading";
 import { RootState } from "../../store/root-reducer";
@@ -12,9 +14,7 @@ const ArticlesPage = () => {
     axiosData();
   }, []);
 
-  const { data, err, loading } = useSelector(
-    (state: RootState) => state.Articles
-  );
+  const { err, loading } = useSelector((state: RootState) => state.Articles);
 
   return (
     <Box>
@@ -23,7 +23,7 @@ const ArticlesPage = () => {
       ) : loading ? (
         <PageLoading />
       ) : (
-        <Box>Content</Box>
+        <ArticlesList />
       )}
     </Box>
   );
