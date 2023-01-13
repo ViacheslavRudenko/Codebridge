@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import Articles from "../../Pages/Articles/Articles";
+import Articles from "../../Pages/HomePage/Articles";
 
 const Routing: React.FC = (): ReactElement => {
   return (
