@@ -1,5 +1,5 @@
-import { Article } from "../../types/article/article";
-import { ArticlesActionTypes } from "../../types/store/types";
+import { Article } from "../../types/article";
+import { ArticlesActionTypes } from "../../types/store";
 import reducer from "../../store/Articles/reducer";
 
 

@@ -1,7 +1,7 @@
 import { AxiosError, AxiosResponse } from "axios";
 import { Dispatch } from "redux";
 import { getArticles } from "../../api/articles";
-import { ArticlesAction, ArticlesActionTypes } from "../../types/store/types";
+import { ArticlesAction, ArticlesActionTypes } from "../../types/store";
 
 
 export const axiosData = () => {

@@ -1,4 +1,4 @@
-import { Article } from "../types/article/article"
+import { Article } from "../types/article"
 import axios from "../utils/instance/instance"
 
 export const getArticles = () => {

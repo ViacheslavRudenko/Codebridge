@@ -1,4 +1,4 @@
-import { ArticlesAction, ArticlesActionTypes, ArticlesState } from "../../types/store/types";
+import { ArticlesAction, ArticlesActionTypes, ArticlesState } from "../../types/store";
 
 export const initialState: ArticlesState = {
   loading: false,
