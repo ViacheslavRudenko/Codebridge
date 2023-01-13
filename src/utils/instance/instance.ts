@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Token } from "../types/api/api";
+import { Token } from "../../types/api/api";
 
 const token: Token = process.env.REACT_APP_API_TOKEN || "";
 const url: Token = process.env.REACT_APP_API_URL || "";

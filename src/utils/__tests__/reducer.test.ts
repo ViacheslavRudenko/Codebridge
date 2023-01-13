@@ -1,6 +1,6 @@
 import { Article } from "../../types/article/article";
 import { ArticlesActionTypes } from "../../types/store/types";
-import reducer from "./reducer";
+import reducer from "../../store/Articles/reducer";
 
 
 describe("Articles reducer", () => {
