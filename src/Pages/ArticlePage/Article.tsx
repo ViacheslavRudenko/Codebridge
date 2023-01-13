@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getArticle } from "../../api/articles";
-import ArticlesItem from "../../Components/Articles/ArticlesItem";
+import Article from "../../Components/Articles/Article/Article";
 import PageError from "../../Components/PageInfo/PageError";
 import PageLoading from "../../Components/PageInfo/PageLoading";
 import { RootState } from "../../store/root-reducer";
@@ -28,7 +28,7 @@ const ArticlesPage = () => {
       ) : loading || !data.length ? (
         <PageLoading />
       ) : (
-        <ArticlesItem article={data[0]} />
+        <Article article={data[0]} />
       )}
     </Box>
   );
