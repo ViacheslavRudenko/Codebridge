@@ -1,7 +1,6 @@
 import { createTheme } from "@mui/material";
 
 const style = createTheme({
-
     typography: {
         fontFamily: ["Montserrat", "sans-serif"].join(","),
         allVariants: {
@@ -24,6 +23,9 @@ const style = createTheme({
             color: "#363636",
         },
     },
+    palette: {
+        primary: { main: "rgba(54, 54, 54, 0.8)" }
+    }
 });
 
 export default style 
