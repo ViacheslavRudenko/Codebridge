@@ -6,5 +6,10 @@ export const getArticles = () => {
     return data
 }
 
+export const getArticle = (id: number) => {
+    const data = axios.get<Article>(`/${id}`)
+    return data
+}
+
 
 

@@ -1,13 +1,12 @@
 import { AxiosError, AxiosResponse } from "axios";
 import { Dispatch } from "redux";
-import { getArticles } from "../../api/articles";
 import { ArticlesAction, ArticlesActionTypes } from "../../types/store";
 
 
-export const axiosData = () => {
+export const axiosData = (getData: Promise<AxiosResponse>) => {
   return async (dispatch: Dispatch<ArticlesAction>) => {
     dispatch({ type: ArticlesActionTypes.FETCH_ARTICLES });
-    await getArticles()
+    await getData
       .then((resp: AxiosResponse) =>
         dispatch({
           type: ArticlesActionTypes.FETCH_ARTICLES_SUCCESS,
