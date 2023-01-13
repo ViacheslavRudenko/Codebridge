@@ -1,3 +1,4 @@
+import { Params } from "react-router-dom"
 import { Article } from "../types/article"
 import axios from "../utils/instance/instance"
 
@@ -6,7 +7,7 @@ export const getArticles = () => {
     return data
 }
 
-export const getArticle = (id: number) => {
+export const getArticle = (id: string) => {
     const data = axios.get<Article>(`/${id}`)
     return data
 }

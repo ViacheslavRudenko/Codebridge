@@ -10,7 +10,7 @@ export const axiosData = (getData: Promise<AxiosResponse>) => {
       .then((resp: AxiosResponse) =>
         dispatch({
           type: ArticlesActionTypes.FETCH_ARTICLES_SUCCESS,
-          payload: resp.data,
+          payload: Array.isArray(resp.data) ? resp.data : [resp.data],
         })
       )
       .catch((err: AxiosError) =>

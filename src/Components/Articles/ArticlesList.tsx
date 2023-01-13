@@ -1,6 +1,7 @@
 import { Box, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/root-reducer";
+import { Article } from "../../types/article";
 import ArticlesItem from "./ArticlesItem";
 import "./index.scss";
 
@@ -13,7 +14,7 @@ const ArticlesList = () => {
       gap={{ xs: 1, sm: 2, md: 5 }}
       className="list"
     >
-      {articles.map((article) => {
+      {articles.map((article: Article) => {
         return (
           <Grid item component="li" key={article.id} className="list__item">
             <ArticlesItem article={article} />
