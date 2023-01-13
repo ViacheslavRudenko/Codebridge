@@ -15,6 +15,12 @@
       &__title {
         text-transform: uppercase;
       }
+      &__link {
+        text-decoration: none;
+      }
+      &__icon {
+        fill: rgba(54, 54, 54, 0.8);
+      }
     }
   }
 }

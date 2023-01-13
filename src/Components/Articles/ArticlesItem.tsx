@@ -10,7 +10,7 @@ const ArticlesItem = ({ article }: ArticlesItemPropsType) => {
     return (
       <>
         <Stack direction="row">
-          <CalendarTodayIcon fontSize="small" sx={{ color: "primary.main" }} />
+          <CalendarTodayIcon fontSize="small" className="item__icon" />
           <Typography variant="body2" pl={1} component="span">
             {getDate(article.publishedAt)}
           </Typography>
@@ -20,7 +20,7 @@ const ArticlesItem = ({ article }: ArticlesItemPropsType) => {
         </Typography>
         <Typography>{article.summary}</Typography>
         <Box pt={3}>
-          <Link to={`/articles/${article.id}`}>
+          <Link to={`/articles/${article.id}`} className="item__link">
             <Typography variant="button">Read more &rarr;</Typography>
           </Link>
         </Box>
