@@ -1,7 +1,7 @@
 import { Box, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/root-reducer";
-import { Article } from "../../types/article";
+import { RootState } from "../../../store/root-reducer";
+import { Article } from "../../../types/article";
 import ArticlesItem from "./ArticlesItem";
 import "./index.scss";
 

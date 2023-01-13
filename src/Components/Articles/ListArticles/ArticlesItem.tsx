@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
-import { ArticlesItemPropsType } from "../../types/components";
-import { getDate } from "./extra/functions";
+import { ArticlesItemPropsType } from "../../../types/components";
+import { getDate } from "../extra/functions";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import "./index.scss";
 import { Link } from "react-router-dom";

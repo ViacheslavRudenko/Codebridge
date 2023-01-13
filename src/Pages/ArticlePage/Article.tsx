@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getArticle } from "../../api/articles";
-import Article from "../../Components/Articles/Article/Article";
+import Article from "../../Components/Articles/SingleArticle/Article";
 import PageError from "../../Components/PageInfo/PageError";
 import PageLoading from "../../Components/PageInfo/PageLoading";
 import { RootState } from "../../store/root-reducer";
