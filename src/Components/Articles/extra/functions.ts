@@ -14,6 +14,6 @@ export const getDate = (time: string): string => {
 export const trimText = (text: string): string => {
     var maxLength = 150
     var trimmedString = text.substring(0, maxLength);
-    trimmedString = trimmedString.substring(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
+    trimmedString = text.length > 150 ? trimmedString.substring(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" "))) + '...' : trimmedString
     return trimmedString
 }

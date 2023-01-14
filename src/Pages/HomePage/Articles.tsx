@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getArticles } from "../../api/articles";
+import Filter from "../../Components/Articles/Filter/Filter";
 import ArticlesItem from "../../Components/Articles/ListArticles/ArticlesItem";
 import ArticlesList from "../../Components/Articles/ListArticles/ArticlesList";
 import PageError from "../../Components/PageInfo/PageError";
@@ -24,7 +25,10 @@ const ArticlesPage = () => {
       ) : loading ? (
         <PageLoading />
       ) : (
-        <ArticlesList />
+        <>
+          <Filter />
+          <ArticlesList />
+        </>
       )}
     </Box>
   );
