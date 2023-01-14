@@ -5,23 +5,25 @@ import { Box, FormControl, InputAdornment, TextField } from "@mui/material";
 
 const Search: FunctionComponent = () => {
   const [showClearIcon, setShowClearIcon] = useState("none");
+  const [value, setValue] = useState<string>("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setShowClearIcon(event.target.value === "" ? "none" : "flex");
   };
 
   const handleClick = (): void => {
-    console.log("clicked the clear icon...");
+    setValue("");
   };
 
   return (
-    <FormControl>
+    <FormControl onChange={(e: any) => setValue(e.target.value)}>
       <TextField
         size="small"
         variant="outlined"
         onChange={handleChange}
         className="search__item"
         placeholder="Search..."
+        value={value}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -30,6 +32,7 @@ const Search: FunctionComponent = () => {
           ),
           endAdornment: (
             <InputAdornment
+              sx={{ cursor: "pointer" }}
               position="end"
               style={{ display: showClearIcon }}
               onClick={handleClick}
