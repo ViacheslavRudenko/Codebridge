@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { ArticlesItemPropsType } from "../../../types/components";
+import ContentBox from "./ArticleContent/ArticleContent";
 import "./index.scss";
 
 const Article = ({ article }: ArticlesItemPropsType) => {
@@ -14,11 +15,7 @@ const Article = ({ article }: ArticlesItemPropsType) => {
           }}
         ></Box>
       </Box>
-      <Box className="single__content">
-        <Typography variant="h6">{article.title}</Typography>
-        <Typography>{article.summary}</Typography>
-        <Link to="/articles">Back to homepage</Link>
-      </Box>
+      <ContentBox article={article} />
     </Box>
   );
 };
