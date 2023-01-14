@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { ArticlesItemPropsType } from "../../../types/components";
 import ContentBox from "./ArticleContent/ArticleContent";
-import "./index.scss";
 
 const Article = ({ article }: ArticlesItemPropsType) => {
   return (
@@ -15,7 +14,7 @@ const Article = ({ article }: ArticlesItemPropsType) => {
           }}
         ></Box>
       </Box>
-      <ContentBox article={article} />
+      <ContentBox article={article} isMainPage={false} />
     </Box>
   );
 };
