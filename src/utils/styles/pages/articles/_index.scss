@@ -1,5 +1,32 @@
 .main {
   padding: 50px 0 60px;
+
+  //filter
+  .container {
+    font-weight: 600;
+    &__search {
+      padding: 10px 0 40px;
+    }
+    &__result {
+      position: relative;
+      &:after {
+        position: absolute;
+        content: "";
+        height: 1px;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        background-color: $primary-font-color;
+        opacity: 0.3;
+      }
+    }
+    .search {
+      &__item {
+        width: 600px;
+      }
+    }
+  }
+  //Articles list
   .list {
     padding-top: 45px;
     justify-content: center;
