@@ -1,0 +1,35 @@
+.list {
+  padding: 45px 0 65px;
+  justify-content: center;
+  &__item {
+    @include box-border;
+  }
+  .item {
+    width: 400px;
+    height: 530px;
+    overflow: hidden;
+    &__img {
+      width: 400px;
+      height: 217px;
+      box-sizing: content-box;
+    }
+    .content {
+      padding: 25px;
+      color: $primary-font-color;
+      &__date {
+        font-size: 14px;
+        p {
+          padding-left: 10px;
+        }
+      }
+      &__title {
+        font-size: 24px;
+        line-height: 29px;
+        padding: 24px 0;
+      }
+      &__text {
+        padding: 20px 0;
+      }
+    }
+  }
+}

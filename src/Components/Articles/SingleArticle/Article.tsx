@@ -1,5 +1,4 @@
-import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box } from "@mui/material";
 import { ArticlesItemPropsType } from "../../../types/components";
 import ContentBox from "./ArticleContent/ArticleContent";
 

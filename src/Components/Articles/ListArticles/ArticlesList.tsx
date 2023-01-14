@@ -7,10 +7,20 @@ import ArticlesItem from "./ArticlesItem";
 const ArticlesList = () => {
   const articles = useSelector((state: RootState) => state.Articles.data);
   return (
-    <Grid container component="ul" gap={{ xs: 1, sm: 2, md: 5 }}>
+    <Grid
+      container
+      component="ul"
+      gap={{ xs: 1, sm: 2, md: 5 }}
+      className="list"
+    >
       {articles.map((article: Article) => {
         return (
-          <Grid item component="li" key={article.id}>
+          <Grid
+            item
+            component="li"
+            key={article.id}
+            className="list__item item"
+          >
             <ArticlesItem article={article} />
           </Grid>
         );

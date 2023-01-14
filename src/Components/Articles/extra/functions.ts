@@ -1,6 +1,6 @@
 import { monthArray } from "./data";
 
-export const getDate = (time: string) => {
+export const getDate = (time: string): string => {
     const date = new Date(time);
     const res =
         monthArray[date.getMonth()] +
@@ -10,3 +10,10 @@ export const getDate = (time: string) => {
         date.getFullYear();
     return res;
 };
+
+export const trimText = (text: string): string => {
+    var maxLength = 150
+    var trimmedString = text.substring(0, maxLength);
+    trimmedString = trimmedString.substring(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
+    return trimmedString
+}

@@ -5,7 +5,12 @@ import ContentBox from "../SingleArticle/ArticleContent/ArticleContent";
 const ArticlesItem = ({ article }: ArticlesItemPropsType) => {
   return (
     <>
-      <Box component="img" alt={article.newsSite} src={article.imageUrl}></Box>
+      <Box
+        component="img"
+        alt={article.newsSite}
+        src={article.imageUrl}
+        className="item__img"
+      ></Box>
       <ContentBox article={article} />
     </>
   );
