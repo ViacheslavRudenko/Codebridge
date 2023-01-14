@@ -8,6 +8,8 @@
     width: 400px;
     height: 530px;
     overflow: hidden;
+    position: relative;
+
     &__img {
       width: 400px;
       height: 217px;
@@ -15,6 +17,7 @@
     }
     .content {
       padding: 25px;
+
       @include content;
       &__date {
         font-size: 14px;
@@ -29,6 +32,10 @@
       }
       &__text {
         padding: 20px 0;
+      }
+      &__btn {
+        position: absolute;
+        top: 480px;
       }
     }
   }
