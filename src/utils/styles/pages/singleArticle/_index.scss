@@ -11,17 +11,16 @@
       background-size: cover;
       right: 0;
       left: 0;
-      z-index: -1;
+      z-index: 0;
     }
   }
   .content {
     padding: 35px 75px 50px;
-    width: 100%;
     background: #ffffff;
     border: 1px solid #eaeaea;
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
-    color: $primary-font-color;
+    @include content;
     position: relative;
     &__title {
       font-size: 24px;

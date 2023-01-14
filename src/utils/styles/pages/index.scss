@@ -1,2 +1,9 @@
 @import "./articles/index";
 @import "./singleArticle/index";
+
+.container-box {
+  min-width: $min-page-size;
+  max-width: $max-page-size;
+  margin: 0 auto;
+  background-color: $primary-backgroung-color;
+}

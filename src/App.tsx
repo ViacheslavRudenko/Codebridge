@@ -5,7 +5,7 @@ import "./utils/styles/index.scss";
 
 const App = () => {
   return (
-    <Stack maxWidth={1280} minWidth={320} margin="0 auto">
+    <Stack className="container-box">
       <Routing />
     </Stack>
   );
