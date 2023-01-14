@@ -18,8 +18,8 @@ const ContentBox = ({ article }: ArticlesItemPropsType) => {
       </Typography>
       <Typography>{article.summary}</Typography>
       <Box pt={3}>
-        <Link to={`/articles/${article.id}`} className="item__link">
-          <Typography variant="button">Read more &rarr;</Typography>
+        <Link to={`/articles/${article.id}`} className="link">
+          <Typography>Read more &rarr;</Typography>
         </Link>
       </Box>
     </Box>
