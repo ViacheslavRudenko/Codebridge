@@ -19,7 +19,7 @@ const ArticlesPage = () => {
   const { err, loading } = useSelector((state: RootState) => state.Articles);
 
   return (
-    <Box>
+    <Box className="main">
       {err ? (
         <PageError content={err} />
       ) : loading ? (
