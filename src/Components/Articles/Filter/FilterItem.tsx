@@ -8,10 +8,11 @@ import Fuse from "fuse.js";
 import { useActions } from "../../../utils/hooks/useActions";
 import { getArticles } from "../../../api/articles";
 import { Article } from "../../../types/article";
+import { SearchPropsType } from "../../../types/components";
 
-const Search = (): ReactElement => {
+const Search = ({ value, setValue }: SearchPropsType): ReactElement => {
   const [showClearIcon, setShowClearIcon] = useState("none");
-  const [value, setValue] = useState<string>("");
+
   const articles = useSelector((state: RootState) => state.Articles.data);
   const { axiosData, updateArticles } = useActions();
 
