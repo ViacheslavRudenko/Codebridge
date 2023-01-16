@@ -18,7 +18,7 @@ const ArticlesPage = (): ReactElement => {
   const { err, loading } = useSelector((state: RootState) => state.Articles);
 
   return (
-    <Box className="main">
+    <Box pt={6} pb={7}>
       {err ? (
         <PageError content={err} />
       ) : loading ? (

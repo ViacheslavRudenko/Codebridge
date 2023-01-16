@@ -10,32 +10,45 @@ const ContentBox = ({
   isMainPage = true,
 }: ArticlesItemPropsType): ReactElement => {
   return (
-    <Box className="content">
+    <>
+      {/* Date of article */}
       {isMainPage ? (
-        <Stack direction="row" className="content__date">
+        <Stack direction="row">
           <CalendarTodayIcon fontSize="small" />
-          <Typography variant="body2">
+          <Typography variant="body1" pl={1}>
             {getDate(article.publishedAt)}
           </Typography>
         </Stack>
-      ) : null}
-      <Typography variant="h6" className="content__title">
+      ) : (
+        <></>
+      )}
+
+      {/* Title of article */}
+      <Typography variant="h6" paddingY={2}>
         {article.title}
       </Typography>
-      <Typography className="content__text">
+
+      {/* Description of article */}
+      <Typography paddingY={3} variant="subtitle2">
         {isMainPage ? trimText(article.summary) : article.summary}
       </Typography>
-      <Box className="content__btn">
+
+      {/* Link  */}
+      <Box>
         <Link
           to={isMainPage ? `/articles/${article.id}` : `/articles`}
           className="link"
         >
-          <Typography>
+          <Typography
+            position="absolute"
+            top={isMainPage ? 260 : undefined}
+            bottom={!isMainPage ? -80 : undefined}
+          >
             {isMainPage ? `Read more ->` : "<- Back to homepage"}
           </Typography>
         </Link>
       </Box>
-    </Box>
+    </>
   );
 };
 

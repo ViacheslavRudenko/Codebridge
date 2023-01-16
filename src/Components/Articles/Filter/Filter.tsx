@@ -8,12 +8,12 @@ const Filter = (): ReactElement => {
   const data = useSelector((state: RootState) => state.Articles.data);
 
   return (
-    <Box className="container">
-      <Typography>Filter by keywords</Typography>
-      <Box className="container__search search">
-        <Search />
+    <Box className="search">
+      <Typography variant="subtitle1">Filter by keywords</Typography>
+      <Box pt={1} pb={4}>
+        <Search /> {/* input*/}
       </Box>
-      <Typography className="container__result">
+      <Typography variant="subtitle1" className="search__result">
         Results: {data.length}
       </Typography>
     </Box>

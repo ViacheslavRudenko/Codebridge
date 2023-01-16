@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { ReactElement } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/root-reducer";
@@ -12,7 +12,8 @@ const ArticlesList = (): ReactElement => {
       container
       component="ul"
       gap={{ xs: 1, sm: 2, md: 5 }}
-      className="list"
+      pt={5}
+      justifyContent={{ xs: "center", sm: "center", md: "center", lg: "start" }}
     >
       {articles.map((article: Article) => {
         return (
@@ -20,7 +21,10 @@ const ArticlesList = (): ReactElement => {
             item
             component="li"
             key={article.id}
-            className="list__item item"
+            width={400}
+            height={530}
+            overflow="hidden"
+            position="relative"
           >
             <ArticlesItem article={article} />
           </Grid>
