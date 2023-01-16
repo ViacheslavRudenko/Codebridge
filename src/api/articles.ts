@@ -1,4 +1,3 @@
-import { Params } from "react-router-dom"
 import { Article } from "../types/article"
 import axios from "../utils/instance/instance"
 

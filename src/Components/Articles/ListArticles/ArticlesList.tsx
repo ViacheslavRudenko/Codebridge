@@ -1,10 +1,11 @@
 import { Box, Grid } from "@mui/material";
+import { ReactElement } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/root-reducer";
 import { Article } from "../../../types/article";
 import ArticlesItem from "./ArticlesItem";
 
-const ArticlesList = () => {
+const ArticlesList = (): ReactElement => {
   const articles = useSelector((state: RootState) => state.Articles.data);
   return (
     <Grid

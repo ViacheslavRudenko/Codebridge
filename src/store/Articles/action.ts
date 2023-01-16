@@ -24,7 +24,7 @@ export const axiosData = (getData: Promise<AxiosResponse>) => {
 };
 
 
-export const updateArticles = (articles: Article[]): any => {
+export const updateArticles = (articles: Article[]) => {
   return async (dispatch: Dispatch<ArticlesAction>) => {
     dispatch({
       type: ArticlesActionTypes.UPDATE_ARTICLES,

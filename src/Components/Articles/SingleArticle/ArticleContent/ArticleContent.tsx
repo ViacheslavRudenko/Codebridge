@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import { ArticlesItemPropsType } from "../../../../types/components";
 import { getDate, trimText } from "../../extra/functions";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import { ReactElement } from "react";
 
-const ContentBox = ({ article, isMainPage = true }: ArticlesItemPropsType) => {
+const ContentBox = ({
+  article,
+  isMainPage = true,
+}: ArticlesItemPropsType): ReactElement => {
   return (
     <Box className="content">
       {isMainPage ? (

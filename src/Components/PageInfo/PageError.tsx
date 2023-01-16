@@ -1,10 +1,13 @@
 import { Alert, Grid } from "@mui/material";
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 import { PageErrPropsType } from "../../types/components";
 
-const PageError = ({ content, type = "error" }: PageErrPropsType) => {
+const PageError = ({
+  content,
+  type = "error",
+}: PageErrPropsType): ReactElement => {
   const [isShow, setIsShow] = useState<boolean>(true);
-  const hideAlertModal = () => {
+  const hideAlertModal = (): void => {
     setIsShow(false);
   };
 
@@ -14,7 +17,9 @@ const PageError = ({ content, type = "error" }: PageErrPropsType) => {
         {content}
       </Alert>
     </Grid>
-  ) : null;
+  ) : (
+    <></>
+  );
 };
 
 export default PageError;

@@ -1,6 +1,7 @@
 import { CircularProgress, Grid } from "@mui/material";
+import { ReactElement } from "react";
 
-const PageLoading = () => {
+const PageLoading = (): ReactElement => {
   return (
     <Grid
       justifyContent="center"

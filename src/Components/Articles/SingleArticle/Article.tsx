@@ -1,8 +1,9 @@
 import { Box } from "@mui/material";
+import { ReactElement } from "react";
 import { ArticlesItemPropsType } from "../../../types/components";
 import ContentBox from "./ArticleContent/ArticleContent";
 
-const Article = ({ article }: ArticlesItemPropsType) => {
+const Article = ({ article }: ArticlesItemPropsType): ReactElement => {
   return (
     <Box className="single">
       <Box className="single__imgBox">

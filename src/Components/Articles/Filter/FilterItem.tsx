@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, ReactElement, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import { FormControl, InputAdornment, TextField } from "@mui/material";
@@ -7,8 +7,9 @@ import { RootState } from "../../../store/root-reducer";
 import Fuse from "fuse.js";
 import { useActions } from "../../../utils/hooks/useActions";
 import { getArticles } from "../../../api/articles";
+import { Article } from "../../../types/article";
 
-const Search: FunctionComponent = () => {
+const Search = (): ReactElement => {
   const [showClearIcon, setShowClearIcon] = useState("none");
   const [value, setValue] = useState<string>("");
   const articles = useSelector((state: RootState) => state.Articles.data);
@@ -21,10 +22,10 @@ const Search: FunctionComponent = () => {
   });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const isInputEmpty = event.target.value === "";
+    const isInputEmpty: boolean = event.target.value === "";
     setShowClearIcon(isInputEmpty ? "none" : "flex");
     const results = fuse
-      .search(event.target.value)
+      .search<Article>(event.target.value)
       .map((character) => character.item);
     updateArticles(results);
     isInputEmpty && axiosData(getArticles());
@@ -36,7 +37,11 @@ const Search: FunctionComponent = () => {
   };
 
   return (
-    <FormControl onChange={(e: any) => setValue(e.target.value)}>
+    <FormControl
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(e.target.value);
+      }}
+    >
       <TextField
         size="small"
         variant="outlined"
