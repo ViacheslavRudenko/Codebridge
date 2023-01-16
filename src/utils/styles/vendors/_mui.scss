@@ -1,0 +1,7 @@
+.MuiGrid-root {
+  padding-left: 0;
+  margin: 0;
+  & .MuiGrid-root {
+    @include box-border;
+  }
+}
