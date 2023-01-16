@@ -10,6 +10,7 @@ export enum ArticlesActionTypes {
   FETCH_ARTICLES = "FETCH_ARTICLES",
   FETCH_ARTICLES_SUCCESS = "FETCH_ARTICLES_SUCCESS",
   FETCH_ARTICLES_ERROR = "FETCH_ARTICLES_ERROR",
+  UPDATE_ARTICLES = 'UPDATE_ARTICLES'
 }
 
 interface FetchArticlesAction {
@@ -23,9 +24,15 @@ interface FetchArticlesErrorAction {
   type: ArticlesActionTypes.FETCH_ARTICLES_ERROR;
   payload: string;
 }
+
+interface UpdateArticlesAction {
+  type: ArticlesActionTypes.UPDATE_ARTICLES;
+  payload: Article[];
+
+}
 export type ArticlesAction =
   | FetchArticlesAction
   | FetchArticlesSuccessAction
-  | FetchArticlesErrorAction;
-
+  | FetchArticlesErrorAction
+  | UpdateArticlesAction;
 

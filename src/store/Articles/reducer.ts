@@ -17,6 +17,9 @@ const reducerJobs = (state = initialState, action: ArticlesAction): ArticlesStat
     case ArticlesActionTypes.FETCH_ARTICLES_ERROR: {
       return { loading: false, err: action.payload, data: [] };
     }
+    case ArticlesActionTypes.UPDATE_ARTICLES: {
+      return { loading: false, err: '', data: action.payload };
+    }
 
     default:
       return state;

@@ -1,5 +1,6 @@
 import { AxiosError, AxiosResponse } from "axios";
 import { Dispatch } from "redux";
+import { Article } from "../../types/article";
 import { ArticlesAction, ArticlesActionTypes } from "../../types/store";
 
 
@@ -21,3 +22,13 @@ export const axiosData = (getData: Promise<AxiosResponse>) => {
       );
   };
 };
+
+
+export const updateArticles = (articles: Article[]): any => {
+  return async (dispatch: Dispatch<ArticlesAction>) => {
+    dispatch({
+      type: ArticlesActionTypes.UPDATE_ARTICLES,
+      payload: articles,
+    })
+  }
+}
