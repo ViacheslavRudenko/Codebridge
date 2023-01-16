@@ -7,28 +7,12 @@ import ArticlesList from "../../Components/Articles/ListArticles/ArticlesList";
 import PageError from "../../Components/PageInfo/PageError";
 import PageLoading from "../../Components/PageInfo/PageLoading";
 import { RootState } from "../../store/root-reducer";
-import { useActions } from "../../utils/hooks/useActions";
 
 const ArticlesPage = (): ReactElement => {
-  const { axiosData } = useActions();
-  useEffect(() => {
-    axiosData(getArticles());
-  }, []);
-
-  const { err, loading } = useSelector((state: RootState) => state.Articles);
-
   return (
     <Box pt={6} pb={7}>
-      {err ? (
-        <PageError content={err} />
-      ) : loading ? (
-        <PageLoading />
-      ) : (
-        <>
-          <Filter />
-          <ArticlesList />
-        </>
-      )}
+      <Filter />
+      <ArticlesList />
     </Box>
   );
 };
