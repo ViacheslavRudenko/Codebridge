@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactElement, useState } from "react";
+import React, { ReactElement, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import { FormControl, InputAdornment, TextField } from "@mui/material";
@@ -15,12 +15,14 @@ const Search = (): ReactElement => {
   const articles = useSelector((state: RootState) => state.Articles.data);
   const { axiosData, updateArticles } = useActions();
 
+  //main logic of searching in titles and descriptions
   const fuse = new Fuse(articles, {
     keys: ["title", "summary"],
     includeScore: true,
     includeMatches: true, // be used for highlighting purposes.
   });
 
+  // action when you print sth
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const isInputEmpty: boolean = event.target.value === "";
     setShowClearIcon(isInputEmpty ? "none" : "flex");
@@ -31,6 +33,7 @@ const Search = (): ReactElement => {
     isInputEmpty && axiosData(getArticles());
   };
 
+  //clean search input
   const handleClick = (): void => {
     setValue("");
     axiosData(getArticles());
@@ -46,9 +49,9 @@ const Search = (): ReactElement => {
         size="small"
         variant="outlined"
         onChange={handleChange}
-        className="search__item"
         placeholder="Search..."
         value={value}
+        className="search__input"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
