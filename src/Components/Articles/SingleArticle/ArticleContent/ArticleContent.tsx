@@ -16,7 +16,7 @@ const ContentBox = ({ article, isMainPage = true }: ArticlesItemPropsType) => {
         </Stack>
       ) : null}
       <Typography variant="h6" className="content__title">
-        {article.newsSite}
+        {article.title}
       </Typography>
       <Typography className="content__text">
         {isMainPage ? trimText(article.summary) : article.summary}
