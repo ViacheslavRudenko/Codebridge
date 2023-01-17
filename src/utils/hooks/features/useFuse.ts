@@ -6,6 +6,8 @@ import { debounce } from 'throttle-debounce';
 import { Article } from '../../../types/article';
 
 export const useFuse = (list: any, options: any): any => {
+
+
     // defining our query state in there directly
     const [query, updateQuery] = useState('');
 
@@ -19,12 +21,13 @@ export const useFuse = (list: any, options: any): any => {
         [list, fuseOptions]
     );
 
+
     // memoize results whenever the query or options change
     const hits = useMemo(
         // if query is empty and `matchAllOnEmptyQuery` is `true` then return all list
         // NOTE: we remap the results to match the return structure of `fuse.search()`
         () => !query && matchAllOnEmptyQuery
-            ? fuse.getIndex().docs.slice(0, limit).map((item: any, refIndex: number) => ({ item, refIndex }))
+            ? fuse.getIndex().docs.slice(0, limit).map((item: Article, refIndex: number) => ({ item, refIndex }))
             : fuse.search(query, { limit }),
         [fuse, limit, matchAllOnEmptyQuery, query]
     );

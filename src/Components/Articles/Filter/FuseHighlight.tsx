@@ -1,20 +1,21 @@
 import React from "react";
-import { Article } from "../../../types/article";
+import { FilteredArticles, IndicesTypes } from "../../../types/article";
+import { trimText } from "../extra/functions";
 
 // Finds `obj[path][to][key]` from `path.to.key`
-const resolveAttribute = (obj: Article, key: string) =>
+const resolveAttribute = (obj: FilteredArticles, key: string) =>
   key.split(".").reduce((prev: any, curr: any) => prev?.[curr], obj);
 
 // Recursively builds JSX output adding `<mark>` tags around matches
-const highlight: any = (value: any, indices: any = [], i = 1) => {
+const highlight: any = (value: string, indices: IndicesTypes = [], i = 1) => {
   const pair = indices[indices.length - i];
   return !pair ? (
-    value
+    trimText(value)
   ) : (
     <>
-      {highlight(value.substring(0, pair[0]), indices, i + 1)}
+      {highlight(trimText(value.substring(0, pair[0])), indices, i + 1)}
       <mark>{value.substring(pair[0], pair[1] + 1)}</mark>
-      {value.substring(pair[1] + 1)}
+      {trimText(value.substring(pair[1] + 1))}
     </>
   );
 };
@@ -24,7 +25,7 @@ const FuseHighlight = ({ hit, attribute }: { hit: any; attribute: string }) => {
   const matches =
     typeof hit.item === "string"
       ? hit.matches?.[0]
-      : hit.matches?.find((m: any) => m.key === attribute);
+      : hit.matches?.find((m: { key: string }) => m.key === attribute);
   const fallback =
     typeof hit.item === "string"
       ? hit.item
