@@ -1,4 +1,4 @@
-import { Alert, Grid } from "@mui/material";
+import { Alert, Stack } from "@mui/material";
 import { ReactElement, useState } from "react";
 import { PageErrPropsType } from "../../types/components";
 
@@ -12,11 +12,11 @@ const PageError = ({
   };
 
   return isShow ? (
-    <Grid justifyContent="end" container alignContent="start">
+    <Stack position={"absolute"} top={40} right={20}>
       <Alert onClose={hideAlertModal} severity={type}>
         {content}
       </Alert>
-    </Grid>
+    </Stack>
   ) : (
     <></>
   );
