@@ -7,7 +7,7 @@ import { RootState } from "../../../store/root-reducer";
 import { useFuse } from "../../../utils/hooks/features/useFuse";
 import { useActions } from "../../../utils/hooks/useActions";
 
-const Search = (): ReactElement => {
+const Search = ({ setResult }: SearchPropsType): ReactElement => {
   const [showClearIcon, setShowClearIcon] = useState("none");
   const articles = useSelector((state: RootState) => state.Articles.data);
   const { filteredArticles } = useActions();
@@ -23,6 +23,7 @@ const Search = (): ReactElement => {
 
   useEffect(() => {
     filteredArticles(hits);
+    setResult(hits.length);
   }, [hits]);
 
   // action when you print sth

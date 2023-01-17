@@ -19,7 +19,9 @@ export interface PageErrPropsType {
 //Search
 
 export interface SearchPropsType {
-    value: string;
-    setValue: Dispatch<SetStateAction<string>>;
+
+    setResult: Dispatch<SetStateAction<any>>;
 }
+
+
 
