@@ -11,7 +11,7 @@ const ArticlesList = (): ReactElement => {
     <Grid
       container
       component="ul"
-      gap={{ xs: 1, sm: 2, md: 5 }}
+      gap={{ xs: 1, sm: 2, md: 3 }}
       className="list"
     >
       {articles.map((article: Article) => {

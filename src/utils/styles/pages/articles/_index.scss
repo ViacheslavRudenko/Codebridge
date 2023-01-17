@@ -1,5 +1,5 @@
 .main {
-  padding: 50px 0 60px;
+  padding: 50px 20px 60px;
 
   //filter
   .container {
@@ -34,6 +34,7 @@
       @include box-border;
     }
     .item {
+      min-width: 320px;
       width: 400px;
       height: 530px;
       overflow: hidden;
@@ -58,9 +59,11 @@
           font-size: 24px;
           line-height: 29px;
           padding: 24px 0;
+          line-height: 1;
         }
         &__text {
-          padding: 20px 0;
+          padding: 10px 0 20px;
+          line-height: 1;
         }
         &__btn {
           position: absolute;
