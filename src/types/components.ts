@@ -1,11 +1,13 @@
 import { AlertColor } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
-import { Article } from "./article";
+import { Article, FilteredArticles } from "./article";
 
 //Articles
-export interface ArticlesItemPropsType {
+export interface ArticlesItemHomePropsType {
+    article: FilteredArticles
+}
+export interface ArticlesItemSinglePropsType {
     article: Article
-    isMainPage?: boolean
 }
 
 //Error
@@ -20,3 +22,4 @@ export interface SearchPropsType {
     value: string;
     setValue: Dispatch<SetStateAction<string>>;
 }
+
