@@ -18,8 +18,9 @@ const Search = ({ setResult }: SearchPropsType): ReactElement => {
     keys: ["title", "summary"],
     includeMatches: true,
     matchAllOnEmptyQuery: true,
-    minMatchCharLength: 2,
+    minMatchCharLength: 4,
     useExtendedSearch: true,
+    //includeScore: true,
   });
 
   useEffect(() => {

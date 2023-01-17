@@ -15,12 +15,7 @@ const highlight: any = (value: string, indices: IndicesTypes = [], i = 1) => {
   ) : (
     <>
       {highlight(trimText(value.substring(0, pair[0])), indices, i + 1)}
-      {new RegExp("\\b(" + textTohighlight + ")\\b", "i").test(value) ||
-      textTohighlight.length > 4 ? (
-        <mark>{textTohighlight}</mark>
-      ) : (
-        textTohighlight
-      )}
+      <mark>{textTohighlight}</mark>
       {trimText(value.substring(pair[1] + 1))}
     </>
   );
