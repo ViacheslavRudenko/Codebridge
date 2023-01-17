@@ -1,5 +1,5 @@
-import { FilteredArticles, IndicesTypes } from "../../../types/article";
-import { trimText } from "../extra/functions";
+import { FilteredArticles, IndicesTypes } from "../../../../types/article";
+import { trimText } from "../../extra/functions";
 
 const resolveAttribute = (obj: FilteredArticles, key: string) =>
   key.split(".").reduce((prev: any, curr: any) => prev?.[curr], obj);

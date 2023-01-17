@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { ReactElement } from "react";
-import Filter from "../../Components/Articles/Filter/Filter";
+import Filter from "../../Components/Articles/ListArticles/Filter/Filter";
 import ArticlesList from "../../Components/Articles/ListArticles/ArticlesList";
 
 const ArticlesPage = (): ReactElement => {

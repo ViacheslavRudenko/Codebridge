@@ -1,7 +1,7 @@
 import { Box, Grid } from "@mui/material";
 import { ReactElement } from "react";
 import { ArticlesItemSinglePropsType } from "../../../types/components";
-import ContentBox from "./ArticleContent/ArticleContent";
+import ContentBox from "../ArticleContent/ArticleContent";
 
 const Article = ({ article }: ArticlesItemSinglePropsType): ReactElement => {
   return (

@@ -2,8 +2,8 @@ import { Box, Stack } from "@mui/material";
 import { ReactElement } from "react";
 import { ArticlesItemHomePropsType } from "../../../types/components";
 import { getDate } from "../extra/functions";
-import FuseHighlight from "../Filter/FuseHighlight";
-import ContentBox from "../SingleArticle/ArticleContent/ArticleContent";
+import FuseHighlight from "./Filter/FuseHighlight";
+import ContentBox from "../ArticleContent/ArticleContent";
 
 const ArticlesItem = ({ article }: ArticlesItemHomePropsType): ReactElement => {
   const title = <FuseHighlight hit={article} attribute="title" />;
