@@ -1,16 +1,11 @@
-import { CircularProgress, Grid } from "@mui/material";
+import { CircularProgress, Stack } from "@mui/material";
 import { ReactElement } from "react";
 
 const PageLoading = (): ReactElement => {
   return (
-    <Grid
-      justifyContent="center"
-      container
-      alignContent="center"
-      height="100vh"
-    >
+    <Stack position={"absolute"} top="50%" left="50%">
       <CircularProgress />
-    </Grid>
+    </Stack>
   );
 };
 

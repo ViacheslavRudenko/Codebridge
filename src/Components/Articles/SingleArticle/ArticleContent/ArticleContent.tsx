@@ -1,44 +1,54 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { ArticlesItemPropsType } from "../../../../types/components";
-import { getDate, trimText } from "../../extra/functions";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { ReactElement } from "react";
 
 const ContentBox = ({
-  article,
+  date,
+  title,
+  description,
+  linkTo,
   isMainPage = true,
-}: ArticlesItemPropsType): ReactElement => {
-  return (
-    <>
-      {/* Date of article */}
-      {isMainPage ? (
-        <Stack direction="row">
-          <CalendarTodayIcon fontSize="small" />
-          <Typography variant="body1" pl={1}>
-            {getDate(article.publishedAt)}
-          </Typography>
-        </Stack>
-      ) : (
-        <></>
-      )}
+}: {
+  date?: string;
+  title: string | ReactElement;
+  description: string | ReactElement;
+  linkTo: string;
+  isMainPage?: boolean;
+}): ReactElement => {
+  const DateOfArticle = () => {
+    return date ? (
+      <Stack direction="row">
+        <CalendarTodayIcon fontSize="small" />
+        <Typography variant="body1" pl={1}>
+          {date}
+        </Typography>
+      </Stack>
+    ) : (
+      <></>
+    );
+  };
 
-      {/* Title of article */}
+  const TitleOfArticle = (): ReactElement => {
+    return (
       <Typography variant="h6" paddingY={2}>
-        {article.title}
+        {title}
       </Typography>
+    );
+  };
 
-      {/* Description of article */}
+  const DescriptionOfArticle = (): ReactElement => {
+    return (
       <Typography paddingY={3} variant="subtitle2">
-        {isMainPage ? trimText(article.summary) : article.summary}
+        {description}
       </Typography>
+    );
+  };
 
-      {/* Link  */}
+  const LinkToanotherPage = (): ReactElement => {
+    return (
       <Box>
-        <Link
-          to={isMainPage ? `/articles/${article.id}` : `/articles`}
-          className="link"
-        >
+        <Link to={linkTo} className="link">
           <Typography
             position="absolute"
             top={isMainPage ? 260 : undefined}
@@ -48,6 +58,15 @@ const ContentBox = ({
           </Typography>
         </Link>
       </Box>
+    );
+  };
+
+  return (
+    <>
+      <DateOfArticle />
+      <TitleOfArticle />
+      <DescriptionOfArticle />
+      <LinkToanotherPage />
     </>
   );
 };

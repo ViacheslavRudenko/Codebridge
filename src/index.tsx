@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store/store";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import defaultTheme from "./utils/styles/default";
 
 const root = ReactDOM.createRoot(
@@ -13,6 +13,7 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
+  //<CssBaseline>
   <ThemeProvider theme={defaultTheme}>
     <BrowserRouter>
       <Provider store={store}>
@@ -20,6 +21,7 @@ root.render(
       </Provider>
     </BrowserRouter>
   </ThemeProvider>
+  // </CssBaseline>
 );
 
 // If you want to start measuring performance in your app, pass a function
