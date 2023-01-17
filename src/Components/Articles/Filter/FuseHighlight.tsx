@@ -9,12 +9,18 @@ const resolveAttribute = (obj: FilteredArticles, key: string) =>
 // Recursively builds JSX output adding `<mark>` tags around matches
 const highlight: any = (value: string, indices: IndicesTypes = [], i = 1) => {
   const pair = indices[indices.length - i];
+  const textTohighlight = pair ? value.substring(pair[0], pair[1] + 1) : "";
   return !pair ? (
     trimText(value)
   ) : (
     <>
       {highlight(trimText(value.substring(0, pair[0])), indices, i + 1)}
-      <mark>{value.substring(pair[0], pair[1] + 1)}</mark>
+      {new RegExp("\\b(" + textTohighlight + ")\\b", "i").test(value) ||
+      textTohighlight.length > 4 ? (
+        <mark>{textTohighlight}</mark>
+      ) : (
+        textTohighlight
+      )}
       {trimText(value.substring(pair[1] + 1))}
     </>
   );
