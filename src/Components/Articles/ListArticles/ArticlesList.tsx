@@ -69,7 +69,7 @@ const ArticlesList = (): ReactElement => {
         <PageError content={err} />
       ) : loading ? (
         <PageLoading />
-      ) : data.length ? (
+      ) : filteredArticles.length ? (
         <DefaultArticlesList />
       ) : (
         <NoAvailableArticles />
