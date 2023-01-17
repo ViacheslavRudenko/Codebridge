@@ -54,7 +54,7 @@ const ContentBox = ({
             top={isMainPage ? 260 : undefined}
             bottom={!isMainPage ? -80 : undefined}
           >
-            {isMainPage ? `Read more ->` : "<- Back to homepage"}
+            {isMainPage ? <>Read more &rarr;</> : <> &larr; Back to homepage</>}
           </Typography>
         </Link>
       </Box>
