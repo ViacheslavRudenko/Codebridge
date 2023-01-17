@@ -17,9 +17,8 @@ const Search = (): ReactElement => {
     keys: ["title", "summary"],
     includeMatches: true,
     matchAllOnEmptyQuery: true,
-    isCaseSensitive: true,
-    useExtendedSearch: true,
     minMatchCharLength: 2,
+    useExtendedSearch: true,
   });
 
   useEffect(() => {
@@ -35,12 +34,7 @@ const Search = (): ReactElement => {
   //clean search input
   const handleClick = (): void => {
     setQuery("");
-  };
-
-  const getFilteredItems = (e: any): void => {
-    if (e.key === "Enter") {
-      onSearch(value);
-    }
+    setValue("");
   };
 
   return (
@@ -50,9 +44,9 @@ const Search = (): ReactElement => {
         variant="outlined"
         placeholder="Search..."
         value={value}
-        onKeyPress={getFilteredItems}
         onChange={(e) => {
           setValue(e.target.value);
+          onSearch(e);
           handleChange();
         }}
         className="search__input"
