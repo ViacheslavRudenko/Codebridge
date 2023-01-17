@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store/root-reducer";
 import { useFuse } from "../../../utils/hooks/features/useFuse";
 import { useActions } from "../../../utils/hooks/useActions";
+import { SearchPropsType } from "../../../types/components";
 
 const Search = ({ setResult }: SearchPropsType): ReactElement => {
   const [showClearIcon, setShowClearIcon] = useState("none");
