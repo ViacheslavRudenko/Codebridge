@@ -11,4 +11,4 @@
 
 ### My app on Netlify:
 
-https://eloquent-unicorn-219086.netlify.app/articles
+https://219086.netlify.app/
