@@ -1,16 +1,17 @@
-import { Article } from "./article";
+import { Article, FilteredArticles } from "./article";
 
 export interface ArticlesState {
   loading: boolean;
   err: string;
   data: Article[];
+  filteredArticles: FilteredArticles[]
 }
 
 export enum ArticlesActionTypes {
   FETCH_ARTICLES = "FETCH_ARTICLES",
   FETCH_ARTICLES_SUCCESS = "FETCH_ARTICLES_SUCCESS",
   FETCH_ARTICLES_ERROR = "FETCH_ARTICLES_ERROR",
-  UPDATE_ARTICLES = 'UPDATE_ARTICLES'
+  FILTERED_ARTICLES = 'FILTERED_ARTICLES'
 }
 
 interface FetchArticlesAction {
@@ -25,14 +26,14 @@ interface FetchArticlesErrorAction {
   payload: string;
 }
 
-interface UpdateArticlesAction {
-  type: ArticlesActionTypes.UPDATE_ARTICLES;
-  payload: Article[];
+interface FilteredArticlesAction {
+  type: ArticlesActionTypes.FILTERED_ARTICLES;
+  payload: FilteredArticles[];
 
 }
 export type ArticlesAction =
   | FetchArticlesAction
   | FetchArticlesSuccessAction
   | FetchArticlesErrorAction
-  | UpdateArticlesAction;
+  | FilteredArticlesAction;
 

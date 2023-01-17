@@ -11,3 +11,9 @@ export interface Article {
     updatedAt: string,
     url: string,
 }
+
+export interface FilteredArticles {
+    item: Article,
+    refIndex: number
+    matches?: any
+}
