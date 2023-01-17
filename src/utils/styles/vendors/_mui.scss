@@ -3,5 +3,8 @@
   margin: 0;
   & .MuiGrid-root {
     @include box-border;
+    & .MuiSvgIcon-root {
+      fill: $primary-font-color;
+    }
   }
 }
