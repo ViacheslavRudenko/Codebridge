@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { ReactElement, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getArticles } from "../../../api/articles";

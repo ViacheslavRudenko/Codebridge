@@ -1,8 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { ReactElement, useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store/root-reducer";
-import { useFuse } from "../../../utils/hooks/features/useFuse";
+import { ReactElement } from "react";
 import Search from "./FilterItem";
 
 const Filter = (): ReactElement => {

@@ -4,8 +4,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import { FormControl, InputAdornment, TextField } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/root-reducer";
-import { useActions } from "../../../utils/hooks/useActions";
-import { getArticles } from "../../../api/articles";
 import { useFuse } from "../../../utils/hooks/features/useFuse";
 import FuseHighlight from "./FuseHighlight";
 
