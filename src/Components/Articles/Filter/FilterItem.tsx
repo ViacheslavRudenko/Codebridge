@@ -4,54 +4,43 @@ import CloseIcon from "@mui/icons-material/Close";
 import { FormControl, InputAdornment, TextField } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/root-reducer";
-import Fuse from "fuse.js";
 import { useActions } from "../../../utils/hooks/useActions";
 import { getArticles } from "../../../api/articles";
-import { Article } from "../../../types/article";
-import { SearchPropsType } from "../../../types/components";
+import { useFuse } from "../../../utils/hooks/features/useFuse";
+import FuseHighlight from "./FuseHighlight";
 
-const Search = ({ value, setValue }: SearchPropsType): ReactElement => {
+const Search = (): ReactElement => {
   const [showClearIcon, setShowClearIcon] = useState("none");
-
   const articles = useSelector((state: RootState) => state.Articles.data);
-  const { axiosData, updateArticles } = useActions();
-
-  //main logic of searching in titles and descriptions
-  const fuse = new Fuse(articles, {
+  const { hits, query, setQuery, onSearch } = useFuse(articles, {
     keys: ["title", "summary"],
-    includeScore: true,
-    includeMatches: true, // be used for highlighting purposes.
+    includeMatches: true,
+    matchAllOnEmptyQuery: true,
   });
 
   // action when you print sth
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const isInputEmpty: boolean = event.target.value === "";
+  const handleChange = (): void => {
+    const isInputEmpty: boolean = query === "";
     setShowClearIcon(isInputEmpty ? "none" : "flex");
-    const results = fuse
-      .search<Article>(event.target.value)
-      .map((character) => character.item);
-    updateArticles(results);
-    isInputEmpty && axiosData(getArticles());
   };
 
   //clean search input
   const handleClick = (): void => {
-    setValue("");
-    axiosData(getArticles());
+    setQuery("");
   };
 
   return (
-    <FormControl
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value);
-      }}
-    >
+    <FormControl>
       <TextField
         size="small"
         variant="outlined"
-        onChange={handleChange}
         placeholder="Search..."
-        value={value}
+        value={query}
+        //onKeyUp={onSearch}
+        onChange={(e) => {
+          onSearch(e);
+          handleChange();
+        }}
         className="search__input"
         InputProps={{
           startAdornment: (
@@ -71,6 +60,12 @@ const Search = ({ value, setValue }: SearchPropsType): ReactElement => {
           ),
         }}
       />
+
+      {hits.map((hit: any) => (
+        <li key={hit.refIndex}>
+          <FuseHighlight hit={hit} attribute="title" />
+        </li>
+      ))}
     </FormControl>
   );
 };
