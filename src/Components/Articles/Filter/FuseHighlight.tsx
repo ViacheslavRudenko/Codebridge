@@ -2,26 +2,27 @@ import React from "react";
 import { FilteredArticles, IndicesTypes } from "../../../types/article";
 import { trimText } from "../extra/functions";
 
-// Finds `obj[path][to][key]` from `path.to.key`
 const resolveAttribute = (obj: FilteredArticles, key: string) =>
   key.split(".").reduce((prev: any, curr: any) => prev?.[curr], obj);
 
-// Recursively builds JSX output adding `<mark>` tags around matches
 const highlight: any = (value: string, indices: IndicesTypes = [], i = 1) => {
   const pair = indices[indices.length - i];
   const textTohighlight = pair ? value.substring(pair[0], pair[1] + 1) : "";
+  const reg = new RegExp("\\b" + textTohighlight, "ig").test(value);
+  console.log(reg);
+
   return !pair ? (
     trimText(value)
   ) : (
     <>
       {highlight(trimText(value.substring(0, pair[0])), indices, i + 1)}
-      <mark>{textTohighlight}</mark>
+      {reg ? <mark>{textTohighlight}</mark> : <>{textTohighlight}</>}
+
       {trimText(value.substring(pair[1] + 1))}
     </>
   );
 };
 
-// FuseHighlight component
 const FuseHighlight = ({ hit, attribute }: { hit: any; attribute: string }) => {
   const matches =
     typeof hit.item === "string"

@@ -20,7 +20,7 @@ const Search = ({ setResult }: SearchPropsType): ReactElement => {
     matchAllOnEmptyQuery: true,
     minMatchCharLength: value.length < 4 ? 0 : 4,
     useExtendedSearch: true,
-    //includeScore: true,
+    // limit: 9,
   });
 
   useEffect(() => {
@@ -29,9 +29,11 @@ const Search = ({ setResult }: SearchPropsType): ReactElement => {
   }, [hits]);
 
   // action when you print sth
-  const handleChange = (): void => {
+  const handleChange = (e: any): void => {
     const isInputEmpty: boolean = query === "";
     setShowClearIcon(isInputEmpty ? "none" : "flex");
+    setValue(e.target.value);
+    onSearch(e);
   };
 
   //clean search input
@@ -47,11 +49,7 @@ const Search = ({ setResult }: SearchPropsType): ReactElement => {
         variant="outlined"
         placeholder="Search..."
         value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
-          onSearch(e);
-          handleChange();
-        }}
+        onChange={handleChange}
         className="search__input"
         InputProps={{
           startAdornment: (
