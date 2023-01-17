@@ -3,7 +3,9 @@ import { useCallback, useMemo, useState } from 'react';
 import { debounce } from 'throttle-debounce';
 import { Article } from '../../../types/article';
 
-export const useFuse = (list: any, options: any): any => {
+export const useFuse = (list: Article[], options: any) => {
+    console.log(options);
+
     const [query, updateQuery] = useState('');
     const { limit, matchAllOnEmptyQuery, ...fuseOptions } = options;
 

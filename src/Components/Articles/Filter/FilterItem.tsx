@@ -29,7 +29,7 @@ const Search = ({ setResult }: SearchPropsType): ReactElement => {
   }, [hits]);
 
   // action when you print sth
-  const handleChange = (e: any): void => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const isInputEmpty: boolean = query === "";
     setShowClearIcon(isInputEmpty ? "none" : "flex");
     setValue(e.target.value);
