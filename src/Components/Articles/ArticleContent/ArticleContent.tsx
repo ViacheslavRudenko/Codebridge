@@ -2,6 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { ReactElement } from "react";
+import { ContentBoxPropsTYpe } from "../../../types/components";
 
 const ContentBox = ({
   date,
@@ -9,13 +10,7 @@ const ContentBox = ({
   description,
   linkTo,
   isMainPage = true,
-}: {
-  date?: string;
-  title: string | ReactElement;
-  description: string | ReactElement;
-  linkTo: string;
-  isMainPage?: boolean;
-}): ReactElement => {
+}: ContentBoxPropsTYpe): ReactElement => {
   const DateOfArticle = () => {
     return date ? (
       <Stack direction="row">

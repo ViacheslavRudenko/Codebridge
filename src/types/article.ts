@@ -21,3 +21,4 @@ export interface FilteredArticles {
     refIndex: number
     matches?: MatchesType[]
 }
+

@@ -1,5 +1,5 @@
 import { AlertColor } from "@mui/material";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, ReactElement, SetStateAction } from "react";
 import { Article, FilteredArticles } from "./article";
 
 //Articles
@@ -22,5 +22,11 @@ export interface SearchPropsType {
     setResult: Dispatch<SetStateAction<any>>;
 }
 
-
-
+//ContentBox
+export interface ContentBoxPropsTYpe {
+    date?: string;
+    title: string | ReactElement;
+    description: string | ReactElement;
+    linkTo: string;
+    isMainPage?: boolean;
+}
