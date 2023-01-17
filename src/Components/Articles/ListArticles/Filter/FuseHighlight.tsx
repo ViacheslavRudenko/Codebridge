@@ -8,7 +8,6 @@ const highlight: any = (value: string, indices: IndicesTypes = [], i = 1) => {
   const pair = indices[indices.length - i];
   const textTohighlight = pair ? value.substring(pair[0], pair[1] + 1) : "";
   const reg = new RegExp("\\b" + textTohighlight, "ig").test(value);
-  console.log(reg);
 
   return !pair ? (
     trimText(value)
