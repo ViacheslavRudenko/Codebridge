@@ -13,10 +13,10 @@ const reducerJobs = (state = initialState, action: ArticlesAction): ArticlesStat
       return { ...state, loading: true };
     }
     case ArticlesActionTypes.FETCH_ARTICLES_SUCCESS: {
-      return { ...state, loading: false, err: "", data: action.payload };
+      return { ...state, loading: false, err: "", data: action.payload, filteredArticles: [] };
     }
     case ArticlesActionTypes.FETCH_ARTICLES_ERROR: {
-      return { ...state, loading: false, err: action.payload };
+      return { ...state, loading: false, err: action.payload, filteredArticles: [] };
     }
     case ArticlesActionTypes.FILTERED_ARTICLES: {
       return { ...state, filteredArticles: action.payload };
