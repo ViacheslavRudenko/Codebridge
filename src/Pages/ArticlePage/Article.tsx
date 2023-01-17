@@ -22,7 +22,7 @@ const ArticlesPage = (): ReactElement => {
   );
 
   return (
-    <Box>
+    <Box paddingX={2}>
       {err ? (
         <PageError content={err} />
       ) : loading || !data.length ? (

@@ -10,7 +10,7 @@ import { RootState } from "../../store/root-reducer";
 
 const ArticlesPage = (): ReactElement => {
   return (
-    <Box pt={6} pb={7}>
+    <Box paddingY={6} paddingX={2}>
       <Filter />
       <ArticlesList />
     </Box>

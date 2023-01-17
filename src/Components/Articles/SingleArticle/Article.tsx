@@ -25,7 +25,7 @@ const Article = ({ article }: ArticlesItemSinglePropsType): ReactElement => {
       </Box>
 
       {/* Article content */}
-      <Grid width="100%" p={9} position="relative">
+      <Grid width="100%" paddingX={9} paddingY={4} position="relative">
         <ContentBox
           title={article.title}
           description={article.summary}

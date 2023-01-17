@@ -31,7 +31,11 @@ const ContentBox = ({
 
   const TitleOfArticle = (): ReactElement => {
     return (
-      <Typography variant="h6" paddingY={2}>
+      <Typography
+        variant="h6"
+        paddingY={isMainPage ? 2 : 0}
+        textAlign={isMainPage ? "start" : "center"}
+      >
         {title}
       </Typography>
     );
