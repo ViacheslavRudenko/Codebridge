@@ -63,18 +63,6 @@ const ArticlesList = (): ReactElement => {
     );
   };
 
-  const RenderFilteredArticles = () => {
-    return (
-      <>
-        {filteredArticles.map((hit: any) => (
-          <li key={hit.refIndex}>
-            <FuseHighlight hit={hit} attribute="title" />
-          </li>
-        ))}
-      </>
-    );
-  };
-
   return (
     <>
       {err ? (

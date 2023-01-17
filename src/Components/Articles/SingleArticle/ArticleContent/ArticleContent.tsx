@@ -1,17 +1,27 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { getDate, trimText } from "../../extra/functions";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { ReactElement } from "react";
-import FuseHighlight from "../../Filter/FuseHighlight";
 
-const ContentBox = ({ article, isMainPage = true }: any): ReactElement => {
+const ContentBox = ({
+  date,
+  title,
+  description,
+  linkTo,
+  isMainPage = true,
+}: {
+  date?: string;
+  title: string | ReactElement;
+  description: string | ReactElement;
+  linkTo: string;
+  isMainPage?: boolean;
+}): ReactElement => {
   const DateOfArticle = () => {
-    return isMainPage ? (
+    return date ? (
       <Stack direction="row">
         <CalendarTodayIcon fontSize="small" />
         <Typography variant="body1" pl={1}>
-          {getDate(article.publishedAt || article.item.publishedAt)}
+          {date}
         </Typography>
       </Stack>
     ) : (
@@ -22,11 +32,7 @@ const ContentBox = ({ article, isMainPage = true }: any): ReactElement => {
   const TitleOfArticle = (): ReactElement => {
     return (
       <Typography variant="h6" paddingY={2}>
-        {article.title ? (
-          article.title
-        ) : (
-          <FuseHighlight hit={article} attribute="title" />
-        )}
+        {title}
       </Typography>
     );
   };
@@ -34,15 +40,7 @@ const ContentBox = ({ article, isMainPage = true }: any): ReactElement => {
   const DescriptionOfArticle = (): ReactElement => {
     return (
       <Typography paddingY={3} variant="subtitle2">
-        {isMainPage ? (
-          article.summary ? (
-            trimText(article.summary)
-          ) : (
-            <FuseHighlight hit={article} attribute="summary" />
-          )
-        ) : (
-          article.summary
-        )}
+        {description}
       </Typography>
     );
   };
@@ -50,14 +48,7 @@ const ContentBox = ({ article, isMainPage = true }: any): ReactElement => {
   const LinkToanotherPage = (): ReactElement => {
     return (
       <Box>
-        <Link
-          to={
-            isMainPage
-              ? `/articles/${article.id || article.item.id}`
-              : `/articles`
-          }
-          className="link"
-        >
+        <Link to={linkTo} className="link">
           <Typography
             position="absolute"
             top={isMainPage ? 260 : undefined}

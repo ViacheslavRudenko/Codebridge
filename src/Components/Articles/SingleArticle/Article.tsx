@@ -1,9 +1,9 @@
 import { Box, Grid } from "@mui/material";
 import { ReactElement } from "react";
-import { ArticlesItemPropsType } from "../../../types/components";
+import { ArticlesItemSinglePropsType } from "../../../types/components";
 import ContentBox from "./ArticleContent/ArticleContent";
 
-const Article = ({ article }: ArticlesItemPropsType): ReactElement => {
+const Article = ({ article }: ArticlesItemSinglePropsType): ReactElement => {
   return (
     <Grid>
       {/* Background image */}
@@ -26,7 +26,12 @@ const Article = ({ article }: ArticlesItemPropsType): ReactElement => {
 
       {/* Article content */}
       <Grid width="100%" p={9} position="relative">
-        <ContentBox article={article} isMainPage={false} />
+        <ContentBox
+          title={article.title}
+          description={article.summary}
+          linkTo={`/articles`}
+          isMainPage={false}
+        />
       </Grid>
     </Grid>
   );

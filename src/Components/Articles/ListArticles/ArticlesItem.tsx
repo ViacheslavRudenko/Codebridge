@@ -1,9 +1,14 @@
 import { Box, Stack } from "@mui/material";
 import { ReactElement } from "react";
-import { ArticlesItemPropsType } from "../../../types/components";
+import { ArticlesItemHomePropsType } from "../../../types/components";
+import { getDate } from "../extra/functions";
+import FuseHighlight from "../Filter/FuseHighlight";
 import ContentBox from "../SingleArticle/ArticleContent/ArticleContent";
 
-const ArticlesItem = ({ article }: any): ReactElement => {
+const ArticlesItem = ({ article }: ArticlesItemHomePropsType): ReactElement => {
+  const title = <FuseHighlight hit={article} attribute="title" />;
+  const description = <FuseHighlight hit={article} attribute="summary" />;
+
   return (
     <>
       {/* img of article*/}
@@ -18,7 +23,13 @@ const ArticlesItem = ({ article }: any): ReactElement => {
 
       {/* constent of article*/}
       <Stack p={3} position="relative">
-        <ContentBox article={article} />
+        <ContentBox
+          date={getDate(article.item.publishedAt)}
+          title={title}
+          description={description}
+          linkTo={`/articles/${article.item.id}`}
+          isMainPage={true}
+        />
       </Stack>
     </>
   );
