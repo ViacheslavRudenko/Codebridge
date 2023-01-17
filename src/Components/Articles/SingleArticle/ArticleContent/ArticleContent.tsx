@@ -1,42 +1,61 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { ArticlesItemPropsType } from "../../../../types/components";
 import { getDate, trimText } from "../../extra/functions";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { ReactElement } from "react";
+import FuseHighlight from "../../Filter/FuseHighlight";
 
-const ContentBox = ({
-  article,
-  isMainPage = true,
-}: ArticlesItemPropsType): ReactElement => {
-  return (
-    <>
-      {/* Date of article */}
-      {isMainPage ? (
-        <Stack direction="row">
-          <CalendarTodayIcon fontSize="small" />
-          <Typography variant="body1" pl={1}>
-            {getDate(article.publishedAt)}
-          </Typography>
-        </Stack>
-      ) : (
-        <></>
-      )}
+const ContentBox = ({ article, isMainPage = true }: any): ReactElement => {
+  const DateOfArticle = () => {
+    return isMainPage ? (
+      <Stack direction="row">
+        <CalendarTodayIcon fontSize="small" />
+        <Typography variant="body1" pl={1}>
+          {getDate(article.publishedAt || article.item.publishedAt)}
+        </Typography>
+      </Stack>
+    ) : (
+      <></>
+    );
+  };
 
-      {/* Title of article */}
+  const TitleOfArticle = (): ReactElement => {
+    return (
       <Typography variant="h6" paddingY={2}>
-        {article.title}
+        {article.title ? (
+          article.title
+        ) : (
+          <FuseHighlight hit={article} attribute="title" />
+        )}
       </Typography>
+    );
+  };
 
-      {/* Description of article */}
+  const DescriptionOfArticle = (): ReactElement => {
+    return (
       <Typography paddingY={3} variant="subtitle2">
-        {isMainPage ? trimText(article.summary) : article.summary}
+        {isMainPage ? (
+          article.summary ? (
+            trimText(article.summary)
+          ) : (
+            <FuseHighlight hit={article} attribute="summary" />
+          )
+        ) : (
+          article.summary
+        )}
       </Typography>
+    );
+  };
 
-      {/* Link  */}
+  const LinkToanotherPage = (): ReactElement => {
+    return (
       <Box>
         <Link
-          to={isMainPage ? `/articles/${article.id}` : `/articles`}
+          to={
+            isMainPage
+              ? `/articles/${article.id || article.item.id}`
+              : `/articles`
+          }
           className="link"
         >
           <Typography
@@ -48,6 +67,15 @@ const ContentBox = ({
           </Typography>
         </Link>
       </Box>
+    );
+  };
+
+  return (
+    <>
+      <DateOfArticle />
+      <TitleOfArticle />
+      <DescriptionOfArticle />
+      <LinkToanotherPage />
     </>
   );
 };

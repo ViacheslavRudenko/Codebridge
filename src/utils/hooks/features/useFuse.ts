@@ -37,7 +37,7 @@ export const useFuse = (list: any, options: any): any => {
 
     // pass a handling helper to speed up implementation
     const onSearch = useCallback(
-        (e: any) => setQuery(e.target.value.trim()),
+        (e: any) => setQuery(e.target.value),
         [setQuery]
     );
 

@@ -1,20 +1,30 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import { FormControl, InputAdornment, TextField } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/root-reducer";
 import { useFuse } from "../../../utils/hooks/features/useFuse";
-import FuseHighlight from "./FuseHighlight";
+import { useActions } from "../../../utils/hooks/useActions";
 
 const Search = (): ReactElement => {
   const [showClearIcon, setShowClearIcon] = useState("none");
   const articles = useSelector((state: RootState) => state.Articles.data);
+  const { filteredArticles } = useActions();
+  const [value, setValue] = useState<string>("");
+
   const { hits, query, setQuery, onSearch } = useFuse(articles, {
     keys: ["title", "summary"],
     includeMatches: true,
     matchAllOnEmptyQuery: true,
+    isCaseSensitive: true,
+    useExtendedSearch: true,
+    minMatchCharLength: 2,
   });
+
+  useEffect(() => {
+    filteredArticles(hits);
+  }, [hits]);
 
   // action when you print sth
   const handleChange = (): void => {
@@ -27,16 +37,22 @@ const Search = (): ReactElement => {
     setQuery("");
   };
 
+  const getFilteredItems = (e: any): void => {
+    if (e.key === "Enter") {
+      onSearch(value);
+    }
+  };
+
   return (
     <FormControl>
       <TextField
         size="small"
         variant="outlined"
         placeholder="Search..."
-        value={query}
-        //onKeyUp={onSearch}
+        value={value}
+        onKeyPress={getFilteredItems}
         onChange={(e) => {
-          onSearch(e);
+          setValue(e.target.value);
           handleChange();
         }}
         className="search__input"
@@ -58,12 +74,6 @@ const Search = (): ReactElement => {
           ),
         }}
       />
-
-      {hits.map((hit: any) => (
-        <li key={hit.refIndex}>
-          <FuseHighlight hit={hit} attribute="title" />
-        </li>
-      ))}
     </FormControl>
   );
 };

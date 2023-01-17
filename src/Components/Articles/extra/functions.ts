@@ -16,4 +16,5 @@ export const trimText = (text: string): string => {
     var trimmedString: string = text.substring(0, maxLength);
     trimmedString = text.length > 150 ? trimmedString.substring(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" "))) + '...' : trimmedString
     return trimmedString
+
 }
