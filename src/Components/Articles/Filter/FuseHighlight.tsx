@@ -1,4 +1,3 @@
-import React from "react";
 import { FilteredArticles, IndicesTypes } from "../../../types/article";
 import { trimText } from "../extra/functions";
 

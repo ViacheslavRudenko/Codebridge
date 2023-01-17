@@ -8,7 +8,6 @@ import { useActions } from "../../../utils/hooks/useActions";
 import PageLoading from "../../PageInfo/PageLoading";
 import PageError from "../../PageInfo/PageError";
 import ArticlesItem from "./ArticlesItem";
-import FuseHighlight from "../Filter/FuseHighlight";
 
 const listGridStyle = {
   xs: "center",

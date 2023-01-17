@@ -1,6 +1,6 @@
 import { AxiosError, AxiosResponse } from "axios";
 import { Dispatch } from "redux";
-import { Article, FilteredArticles } from "../../types/article";
+import { FilteredArticles } from "../../types/article";
 import { ArticlesAction, ArticlesActionTypes } from "../../types/store";
 
 
